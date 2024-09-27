@@ -18,26 +18,26 @@ User -> API: requests to List Popular Posts
 activate API
 API -> Controller: executeImpl()
 activate Controller
-Controller -> Service: getPopularPosts()
+Controller -> Service: getPopularPosts(offset)
 activate Service
 Service -> GetPopularPosts: execute()
 activate GetPopularPosts
 
 GetPopularPosts -> Repo: getPopularPosts(offset)
 activate Repo
-Repo -> GetPopularPosts: popularPostsData
+Repo -> GetPopularPosts: PostDetails[]
 deactivate Repo
 
 GetPopularPosts -> Service: popularPostsData
 deactivate GetPopularPosts
 
-Service -> Controller: get popularPosts
+Service -> Controller: GetPopularPostsResponseDTO
 deactivate Service
 
 Controller -> API: status code 200
 deactivate Controller
 
-API -> User: get popularPosts
+API -> User: GetPopularPostsResponseDTO
 deactivate API
 
 deactivate User

@@ -1,0 +1,45 @@
+@startuml
+
+skinparam Monochrome true
+skinparam PackageStyle rectangle
+skinparam Shadowing false
+
+title Sequence Diagram: GetPopularPosts
+
+participant "User" as User
+participant "API" as API
+participant "GetPopularPostsController" as Controller
+participant "PostService" as Service
+participant "PostRepo" as Repo
+participant "GetPopularPosts" as GetPopularPosts
+
+activate User
+User -> API: requests to List Popular Posts
+activate API
+API -> Controller: executeImpl()
+activate Controller
+Controller -> Service: getPopularPosts()
+activate Service
+Service -> GetPopularPosts: execute()
+activate GetPopularPosts
+
+GetPopularPosts -> Repo: getPopularPosts(offset)
+activate Repo
+Repo -> GetPopularPosts: popularPostsData
+deactivate Repo
+
+GetPopularPosts -> Service: popularPostsData
+deactivate GetPopularPosts
+
+Service -> Controller: popularPostsDTO()
+deactivate Service
+
+Controller -> API: status code 200
+deactivate Controller
+
+API -> User: popularPostsDTO
+deactivate API
+
+deactivate User
+
+@enduml

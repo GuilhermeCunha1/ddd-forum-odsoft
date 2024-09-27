@@ -31,13 +31,13 @@ deactivate Repo
 GetPopularPosts -> Service: popularPostsData
 deactivate GetPopularPosts
 
-Service -> Controller: popularPostsDTO()
+Service -> Controller: get popularPosts
 deactivate Service
 
 Controller -> API: status code 200
 deactivate Controller
 
-API -> User: popularPostsDTO
+API -> User: get popularPosts
 deactivate API
 
 deactivate User

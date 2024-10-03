@@ -1,3 +1,17 @@
 plugins {
     id "com.github.node-gradle.node" version "7.0.0"
 }
+
+node {
+    // Configura a versão do Node.js que o plugin vai utilizar
+    version = '18.20.2' // Coloca a versão do Node.js que estás a utilizar
+    npmVersion = '10.6.0' // Coloca a versão do npm correspondente
+    download = true      // Faz o download do Node.js localmente se não estiver instalado
+}
+
+task generateDocs(type: Exec) {
+    workingDir = file('.')  // Diretório de trabalho é o diretório raiz do projeto
+    commandLine 'C:/Program Files/nodejs/npm.cmd', 'run', 'docs'
+    description = 'Generate JSDoc documentation for the project'
+    group = 'documentation'
+}

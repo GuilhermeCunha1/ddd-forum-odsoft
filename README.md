@@ -189,3 +189,19 @@ Examples of using the API (without authentication, using postman)
   **3. After Running Tests**
 
   Stop the backend by hitting Ctrl+C in the terminal where the backend is running.
+
+## Test Patterns: Unit Tests vs API Tests
+
+In the project, we use different patterns to distinguish between Unit Tests and API Tests:
+
+### Unit Tests
+- **File Pattern:** Unit tests are generally placed in files with the `.spec.js` or `.test.js` extension and located in folders such as `tests/unit/` or `src/__tests__/unit/`.
+- **Purpose:** Unit Tests test individual units of code (functions, modules) in isolation, without external dependencies.
+- **Tools Used:** Jest, Mocha, Chai, etc.
+
+### API Tests
+- **File Pattern:** API tests are placed in files located in the `tests/api/` folder or in files with the `.api.test.js` extension.
+- **Purpose:** API Tests focus on testing API endpoints, verifying if the data and responses are correct, usually involving HTTP calls.
+- **Tools Used:** Supertest, Axios, Jest with support for integration testing.
+
+The separation of tests by type allows for clear organization and the ability to run specific tests according to the context (development, integration, production).

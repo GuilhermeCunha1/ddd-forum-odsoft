@@ -20,7 +20,7 @@ export class ReplyToCommentController extends BaseController {
     const dto: ReplyToCommentDTO = {
       comment: TextUtils.sanitize(req.body.comment),
       userId: userId,
-      slug: req.query.slug,
+      slug: typeof req.query.slug === 'string' ? req.query.slug : '',
       parentCommentId: req.params.commentId
     }
   

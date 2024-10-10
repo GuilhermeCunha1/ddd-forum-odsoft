@@ -44,14 +44,14 @@ describe("Users endpoint", (): void => {
 
   it("Post Login", async (): Promise<void> => {
     const response = await users.postLogin();
-    //expect(response.status).toBe(200);
+    expect(response.status).toBe(200);
     
     
-    //expect(response.data.accessToken).toBeDefined();
-    //expect(response.data.refreshToken).toBeDefined();
+    expect(response.data.accessToken).toBeDefined();
+    expect(response.data.refreshToken).toBeDefined();
 
-    //accessToken = response.data.accessToken;
-    //refreshToken = response.data.refreshToken;
+    accessToken = response.data.accessToken;
+    refreshToken = response.data.refreshToken;
   });
 
   it("Get Me", async (): Promise<void> => {

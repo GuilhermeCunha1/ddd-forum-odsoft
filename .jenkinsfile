@@ -28,11 +28,11 @@ node {
         }
     }
 
-   //stage('Results') {
+   stage('Results') {
         // Publica os resultados de teste
-     //   junit '**/test-results/*.xml'
+       junit '**/test-results/*.xml'
         // Arquiva os artefatos, se houver
-       // archiveArtifacts 'dist/**/*.*'
+     archiveArtifacts 'dist/**/*.*'
     //}
 }catch (Exception e){
     echo "Erro encontrado: ${e}"

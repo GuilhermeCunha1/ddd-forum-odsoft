@@ -27,6 +27,7 @@ node {
         } else {
             bat 'npm run test'
         }
+}
 
     stage('Integration Test') {
         // Executa os testes
@@ -35,6 +36,8 @@ node {
         } else {
             bat 'npm run test'
         }
+
+}
     
 }catch (Exception e){
     echo "Erro encontrado: ${e}"

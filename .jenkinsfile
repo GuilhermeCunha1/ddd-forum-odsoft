@@ -22,7 +22,7 @@ node {
             sh 'docker-compose up'
             sh 'npm run db:create dev'
             sh 'npm run migrate:dev'
-            sh 'npm run test:api'
+            sh 'npm run test --coverage:api'
         } else {
             bat 'npm run test'
         }

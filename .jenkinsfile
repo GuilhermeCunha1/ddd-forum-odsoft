@@ -35,7 +35,7 @@ node {
         } else {
             bat 'npm run test'
         }
-    }
+    
 }catch (Exception e){
     echo "Erro encontrado: ${e}"
 } finally {

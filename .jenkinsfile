@@ -43,7 +43,7 @@ node {
     echo "Erro encontrado: ${e}"
 } finally {
     stage('Clean'){
-    sh 'rm -rf target/'
+   
 }
 
         publishHTML (target: [

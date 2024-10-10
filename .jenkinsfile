@@ -33,7 +33,7 @@ node {
        junit '**/test-results/*.xml'
         // Arquiva os artefatos, se houver
      archiveArtifacts 'dist/**/*.*'
-    //}
+    }
 }catch (Exception e){
     echo "Erro encontrado: ${e}"
 } finally {

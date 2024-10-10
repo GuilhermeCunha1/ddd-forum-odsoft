@@ -37,10 +37,9 @@ node {
 }catch (Exception e){
     echo "Erro encontrado: ${e}"
 } finally {
-        // Isso será executado sempre, seja com sucesso ou falha
         publishHTML (target: [
-            reportDir: 'reports', // Diretório onde o arquivo foi salvo
-            reportFiles: 'test-report.html', // Nome do arquivo
+            reportDir: 'reports',
+            reportFiles: 'test-report.html', 
             reportName: 'Relatório de Testes',
             keepAll: true,
             alwaysLinkToLastBuild: true,

@@ -29,10 +29,11 @@ node {
     }
 
    stage('Results') {
-        // Publica os resultados de teste
-       junit '**/test-results/*.xml'
-        // Arquiva os artefatos, se houver
-     archiveArtifacts 'dist/**/*.*'
+        steps {
+        sh './jenkins_build.sh'
+        junit '*/build/test-results/*.xml'
+        step( [ $class: 'JacocoPublisher' ] )
+     }
     }
 }catch (Exception e){
     echo "Erro encontrado: ${e}"
